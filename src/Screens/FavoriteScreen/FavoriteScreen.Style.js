@@ -8,7 +8,7 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
     text: {
-        color: Colors.gray,
+        color: Colors.darkGray,
         marginTop: 16,
     }
 })

@@ -50,10 +50,11 @@ function BottomNav({ state, descriptors, navigation }) {
                         onPress={onPress}
                         onLongPress={onLongPress}
                         style={styles.bottomBar}
+                        key={label}
                     >
                         {label == 'Search' && <View style={styles.searchContainer}><View style={styles.searchSubContainer}><Search color={Colors.white} /></View></View>}
-                        {label == 'History' && <View style={styles.historyContainer}><History fill={isFocused ? Colors.red : Colors.darkGray} /><View style={{ width: 4, height: 4, borderRadius: 4, backgroundColor: isFocused ? Colors.red : Colors.white, marginTop: 2 }} /></View>}
-                        {label == 'Favorite' && <View style={styles.favoriteContainer}><Favorite fill={isFocused ? Colors.red : Colors.darkGray} /><View style={{ width: 4, height: 4, borderRadius: 4, backgroundColor: isFocused ? Colors.red : Colors.white, marginTop: 2 }} /></View>}
+                        {label == 'History' && <View style={styles.historyContainer}><History size={24} fill={isFocused ? Colors.red : Colors.darkGray} /><View style={{ width: 4, height: 4, borderRadius: 4, backgroundColor: isFocused ? Colors.red : Colors.white, marginTop: 2 }} /></View>}
+                        {label == 'Favorite' && <View style={styles.favoriteContainer}><Favorite size={24} fill={isFocused ? Colors.red : Colors.darkGray} /><View style={{ width: 4, height: 4, borderRadius: 4, backgroundColor: isFocused ? Colors.red : Colors.white, marginTop: 2 }} /></View>}
                     </TouchableOpacity>
                 );
             })}

@@ -7,6 +7,7 @@ import History from '../Components/icons/History'
 import Favorite from '../Components/icons/Favorite'
 
 function BottomNav({ state, descriptors, navigation }) {
+
     return (
         <View style={{ flexDirection: 'row' }}>
             {state.routes.map((route, index) => {
@@ -50,9 +51,9 @@ function BottomNav({ state, descriptors, navigation }) {
                         onLongPress={onLongPress}
                         style={styles.bottomBar}
                     >
-                        {label == 'Search' && <Search style={styles.searchIcon} stroke={isFocused ? Colors.red : Colors.softRed} />}
-                        {label == 'History' && <History stroke={Colors.gray} />}
-                        {label == 'Favorite' && <Favorite stroke={Colors.gray} />}
+                        {label == 'Search' && <View style={styles.searchContainer}><View style={styles.searchSubContainer}><Search color={Colors.white} /></View></View>}
+                        {label == 'History' && <View style={styles.historyContainer}><History fill={isFocused ? Colors.red : Colors.darkGray} /><View style={{ width: 4, height: 4, borderRadius: 4, backgroundColor: isFocused ? Colors.red : Colors.white, marginTop: 2 }} /></View>}
+                        {label == 'Favorite' && <View style={styles.favoriteContainer}><Favorite fill={isFocused ? Colors.red : Colors.darkGray} /><View style={{ width: 4, height: 4, borderRadius: 4, backgroundColor: isFocused ? Colors.red : Colors.white, marginTop: 2 }} /></View>}
                     </TouchableOpacity>
                 );
             })}
@@ -69,8 +70,31 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
 
         height: 56,
+        backgroundColor: Colors.white,
+        paddingBottom: 8,
     },
-    searchIcon: {
+    searchContainer: {
+        backgroundColor: Colors.white,
+        width: 86,
         height: 86,
-    }
+        borderRadius: 86,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    searchSubContainer: {
+        backgroundColor: Colors.red,
+        width: 56,
+        height: 56,
+        borderRadius: 56,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    historyContainer: {
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    favoriteContainer: {
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
 })

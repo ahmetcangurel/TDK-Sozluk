@@ -8,7 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "svgr": "svgr ./src/assets/icons -d ./src/components/icons --native --icon"
+    "svgr": "svgr ./src/assets/icons -d ./src/components/icons --native --icon --svg-props fill=currentColor"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.3.3",

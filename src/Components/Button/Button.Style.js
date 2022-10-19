@@ -12,5 +12,6 @@ export default styles = StyleSheet.create({
     text: {
         fontSize: 14,
         fontWeight: 'bold',
+        paddingHorizontal: 32,
     },
 })

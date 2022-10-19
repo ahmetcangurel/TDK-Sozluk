@@ -1,20 +1,57 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import BottomNav from './BottomNav';
 
+//Tab Screens
 import HistoryScreen from '../Screens/HistoryScreen';
 import SearchScreen from '../Screens/SearchScreen';
 import FavoriteScreen from '../Screens/FavoriteScreen';
 
-const Tab = createBottomTabNavigator();
+//Stack Screens
+import InfoScreen from '../Screens/InfoScreen';
+import AboutScreen from '../Screens/AboutScreen';
+import ContactScreen from '../Screens/ContactScreen';
+import DetailScreen from '../Screens/DetailScreen/DetailScreen';
+import SearchDetailScreen from '../Screens/SearchDetailScreen';
 
+const Tab = createBottomTabNavigator();
+const SearchStack = createStackNavigator();
+const OptionStack = createStackNavigator();
+
+function SearchStackScreen() {
+    return (
+        <SearchStack.Navigator
+            initialRouteName='SearchScreen'
+            screenOptions={{
+                headerShown: false,
+            }}
+        >
+            <SearchStack.Group>
+                <SearchStack.Screen name="SearchScreen" component={SearchScreen} />
+                <SearchStack.Screen name='Detail' component={DetailScreen} />
+                <SearchStack.Screen name='SearchDetail' component={SearchDetailScreen} />
+                
+                <SearchStack.Screen name='Info' component={InfoScreen} />
+                <SearchStack.Screen name='About' component={AboutScreen} />
+                <SearchStack.Screen name='Contact' component={ContactScreen} />
+            </SearchStack.Group>
+        </SearchStack.Navigator>
+    )
+}
 export default function App() {
+
+
     return (
         <NavigationContainer>
-            <Tab.Navigator screenOptions={{ headerShown: false }} initialRouteName='Search' tabBar={props => <BottomNav {...props} />}>
-                <Tab.Screen options={null} name="History" component={HistoryScreen} />
-                <Tab.Screen name="Search" component={SearchScreen} />
+            <Tab.Navigator
+                screenOptions={{ headerShown: false }}
+                initialRouteName='Search'
+                tabBar={props => <BottomNav {...props} />}
+            >
+                <Tab.Screen name="History" component={HistoryScreen} />
+                <Tab.Screen name="Search" component={SearchStackScreen} />
                 <Tab.Screen name="Favorite" component={FavoriteScreen} />
             </Tab.Navigator>
         </NavigationContainer>

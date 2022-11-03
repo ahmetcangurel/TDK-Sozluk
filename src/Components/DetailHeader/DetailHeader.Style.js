@@ -3,7 +3,6 @@ import Colors from '../../utils/Colors'
 
 export default styles = StyleSheet.create({
     container: {
-        backgroundColor: Colors.white,
         height: 44,
         paddingHorizontal: 16,
         flexDirection: 'row',
@@ -12,5 +11,6 @@ export default styles = StyleSheet.create({
     },
     title: {
         fontWeight: 'bold',
+        color: Colors.dark
     },
 })

@@ -27,7 +27,6 @@ export default styles = StyleSheet.create({
         color: Colors.dark,
         flex: 1,
         textAlign: 'center',
-        marginRight: 40,
     },
     logo: {
         width: '100%',

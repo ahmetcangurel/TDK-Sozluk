@@ -18,7 +18,6 @@ import SearchDetailScreen from '../Screens/SearchDetailScreen';
 
 const Tab = createBottomTabNavigator();
 const SearchStack = createStackNavigator();
-const OptionStack = createStackNavigator();
 
 function SearchStackScreen() {
     return (
@@ -32,10 +31,6 @@ function SearchStackScreen() {
                 <SearchStack.Screen name="SearchScreen" component={SearchScreen} />
                 <SearchStack.Screen name='Detail' component={DetailScreen} />
                 <SearchStack.Screen name='SearchDetail' component={SearchDetailScreen} />
-                
-                <SearchStack.Screen name='Info' component={InfoScreen} />
-                <SearchStack.Screen name='About' component={AboutScreen} />
-                <SearchStack.Screen name='Contact' component={ContactScreen} />
             </SearchStack.Group>
         </SearchStack.Navigator>
     )
@@ -46,7 +41,12 @@ export default function App() {
     return (
         <NavigationContainer>
             <Tab.Navigator
-                screenOptions={{ headerShown: false }}
+                screenOptions={{
+                    headerShown: false,
+                    tabBarHideOnKeyboard: true,
+                    tabBarShowLabel: false,
+                    gestureEnabled: false,
+                }}
                 initialRouteName='Search'
                 tabBar={props => <BottomNav {...props} />}
             >

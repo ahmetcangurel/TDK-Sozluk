@@ -11,7 +11,7 @@ import SvgFavoriteSolid from '../icons/FavoriteSolid'
 import SvgHand from '../icons/Hand'
 import SvgVoice from '../icons/Voice'
 
-const FavoriteButton = ({ onPress, keyword, favList, setFavList }) => {
+const FavoriteButton = ({ keyword }) => {
     const [isFavorite, setIsFavorite] = useState(false)
     const dispatch = useDispatch()
     const favoriteStore = useSelector(s => s.favoriteList)

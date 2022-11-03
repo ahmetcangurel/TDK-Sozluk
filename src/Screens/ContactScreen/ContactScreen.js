@@ -12,9 +12,6 @@ const ContactScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.headerContainer}>
-                <TouchableOpacity style={styles.iconContainer}>
-                    <SvgLeft style={styles.icon} size={24} fill={Colors.darkGray} />
-                </TouchableOpacity>
                 <Text style={styles.title}>İletişim Bilgileri</Text>
             </View>
 

@@ -23,11 +23,11 @@ export default styles = StyleSheet.create({
         borderRadius: 12,
         backgroundColor: Colors.gray,
         marginHorizontal: 12,
-    }, dataTitle: {
+    },
+    dataTitle: {
         fontWeight: 'bold',
         color: Colors.dark,
     },
     dataSummary: {
-        
     },
 })

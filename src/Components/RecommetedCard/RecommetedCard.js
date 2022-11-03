@@ -10,7 +10,7 @@ const RecommetedCard = ({ title, dataTitle, dataSummary, onPress }) => {
             <Text style={styles.title}>{title}</Text>
             <TouchableOpacity onPress={onPress} style={styles.subContainer}>
                 <View style={styles.stick} />
-                <View>
+                <View style={{ width: '85%' }}>
                     <Text style={styles.dataTitle}>{dataTitle}</Text>
                     <Text style={styles.dataSummary}>{dataSummary}</Text>
                 </View>

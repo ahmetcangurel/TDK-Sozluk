@@ -1,5 +1,5 @@
 const state = {
-    homeData: [],
+    favoriteList: [],
 }
 
 export default state

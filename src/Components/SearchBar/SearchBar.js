@@ -4,8 +4,9 @@ import styles from './SearchBar.Style'
 import Colors from '../../utils/Colors'
 import SvgSearch from '../icons/Search'
 import SvgX from '../icons/X'
+import autoComplete from '../../utils/autoComplate.json'
 
-const SearchBar = ({ onChangeFocus }) => {
+const SearchBar = ({ onChangeFocus, setSearchData }) => {
     const [value, setValue] = useState('')
     const [isFocus, setIsFocus] = useState(false)
 
@@ -20,7 +21,17 @@ const SearchBar = ({ onChangeFocus }) => {
     const onCancel = () => {
         setValue('')
         setIsFocus(false)
+        setSearchData([])
         Keyboard.dismiss()
+    }
+
+    const onSearchFilter = (text) => {
+        const filterData = autoComplete.filter(item => {
+            const itemData = item.madde.toString().toUpperCase()
+            const textData = text.toString().toUpperCase()
+            return itemData.indexOf(textData) > -1
+        })
+        setSearchData(filterData)
     }
 
     return (
@@ -34,7 +45,7 @@ const SearchBar = ({ onChangeFocus }) => {
                     onFocus={() => setIsFocus(true)}
                     onChangeText={text => {
                         setValue(text)
-                        console.log(text)
+                        onSearchFilter(text)
                     }}
                 />
                 {value && <SvgX onPress={onClear} style={styles.xIcon} />}

@@ -121,7 +121,8 @@ const SearchScreen = ({ navigation }) => {
                         dataSummary={data?.kelime[0]?.anlam}
                         onPress={() => navigation.navigate('Detail', {
                             data: data?.kelime[0],
-                            title: 'Bir Kelime'
+                            title: 'Bir Kelime',
+                            keyword: data?.atasoz.madde
                         })}
                     />
                     <RecommetedCard

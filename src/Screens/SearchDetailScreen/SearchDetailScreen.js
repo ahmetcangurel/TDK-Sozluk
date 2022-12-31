@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, SafeAreaView, ScrollView, FlatList, VirtualizedList } from 'react-native'
 import styles from './SearchDetailScreen.Style'
 import axios from 'axios'
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import DetailHeader from '../../Components/DetailHeader/DetailHeader'
 import { FavoriteButton, SignLangButton, VoiceButton } from '../../Components/IconButtons/IconButtons'
-import Colors from '../../utils/Colors';
 
 const SearchDetailScreen = ({ navigation, route }) => {
     const [data, setData] = useState()
@@ -19,7 +17,11 @@ const SearchDetailScreen = ({ navigation, route }) => {
             .catch(err => setError(err))
     }, [keyword])
 
-    const RenderItem = ({ num, prop, title, sample }) => {
+    const RenderItem = ({ item }) => {
+        const num = item.anlam_sira
+        const prop = item.ozelliklerListe[0]?.tam_adi.toUpperCase()
+        const title = item.anlam
+        const sample = item.orneklerListe ? item.orneklerListe[0]?.ornek : 'Örnek bulunamadı.'
         return (
             <>
                 <Text style={styles.propName}><Text style={styles.propNum}>{num}</Text> {prop}</Text>
@@ -61,14 +63,11 @@ const SearchDetailScreen = ({ navigation, route }) => {
                 {/* Section */}
                 <View style={styles.summaryContainer}>
                     <FlatList
-                        data={data && data[0]?.anlamlarListe}
+                        data={data && data[0].anlamlarListe}
                         ItemSeparatorComponent={ItemSeparator}
                         renderItem={({ item }) => (
-                            <RenderItem
-                                num={item.anlam_sira}
-                                prop={item.ozelliklerListe[0].tam_adi.toUpperCase()}
-                                title={item.anlam}
-                                sample={item.orneklerListe[0].ornek}
+                            <RenderItem item={item}
+                            //sample={item.orneklerListe[0].ornek == undefined ? 'Örnek bulunamadı.' : item.orneklerListe[0].ornek}
                             />)}
                     />
                 </View>

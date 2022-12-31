@@ -72,7 +72,7 @@ const SearchScreen = ({ navigation }) => {
     const getFavData = async () => {
         let data = await AsyncStorage.getItem('@favorites')
         let resData = data !== null ? JSON.parse(data) : []
-        console.log(resData)
+
         dispatch({
             type: 'UPDATE_FAVORITE_LIST',
             payload: resData

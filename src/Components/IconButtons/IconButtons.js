@@ -41,14 +41,13 @@ const FavoriteButton = ({ keyword }) => {
 
     useEffect(() => {
         const filterItem = favoriteStore.filter(item => item.name.toLowerCase() === keyword.toLowerCase())
-        console.log(filterItem)
-        if (filterItem.length > 0) { // ..change! 
+        if (filterItem === true) {
             setIsFavorite(true)
         } else {
             setIsFavorite(false)
         }
-        console.log(favoriteStore)
-    }, [isFavorite])
+        console.log(filterItem, favoriteStore)
+    }, [])
 
 
     return (

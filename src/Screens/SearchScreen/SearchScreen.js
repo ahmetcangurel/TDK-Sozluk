@@ -122,7 +122,7 @@ const SearchScreen = ({ navigation }) => {
                         onPress={() => navigation.navigate('Detail', {
                             data: data?.kelime[0],
                             title: 'Bir Kelime',
-                            keyword: data?.atasoz.madde
+                            keyword: data?.kelime[0].madde
                         })}
                     />
                     <RecommetedCard
@@ -132,7 +132,7 @@ const SearchScreen = ({ navigation }) => {
                         onPress={() => navigation.navigate('Detail', {
                             data: data?.atasoz[0],
                             title: 'Bir Deyim - Atasözü',
-                            keyword: data?.atasoz.madde
+                            keyword: data?.atasoz[0].madde
                         })}
                     />
                 </ScrollView>

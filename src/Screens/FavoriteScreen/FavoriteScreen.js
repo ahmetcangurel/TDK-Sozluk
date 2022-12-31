@@ -7,6 +7,7 @@ import styles from './FavoriteScreen.Style'
 import Favorite from '../../Components/icons/Favorite'
 import Colors from '../../utils/Colors'
 import { FlatList } from 'react-native-gesture-handler';
+import SearchItem from '../../Components/SearchItem/SearchItem';
 
 const FavoriteScreen = () => {
     const dispatch = useDispatch()
@@ -14,15 +15,16 @@ const FavoriteScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            {favoriteItems.length == null || undefined ?
+            {favoriteItems.length < 0 || null ?
                 <>
                     <Favorite size={48} fill={Colors.darkGray} />
                     <Text style={styles.text}>Henüz favori yok.</Text>
                 </>
                 :
                 <FlatList
+                    style={{ flex: 1, width: '100%', paddingHorizontal: 8, }}
                     data={favoriteItems}
-                    renderItem={({ item }) => <Text>{item.name}</Text>}
+                    renderItem={({ item }) => <SearchItem title={item.name} icon onPress={null} />}
                 />
             }
         </SafeAreaView>

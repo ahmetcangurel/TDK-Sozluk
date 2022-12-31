@@ -14,12 +14,17 @@ const FavoriteScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Favorite size={48} fill={Colors.darkGray} />
-            <Text style={styles.text}>Henüz favori yok.</Text>
-            {/* <FlatList
-                data={favoriteItems}
-                renderItem={({ item }) => <Text>{item.name}</Text>}
-            /> */}
+            {favoriteItems.length == null || undefined ?
+                <>
+                    <Favorite size={48} fill={Colors.darkGray} />
+                    <Text style={styles.text}>Henüz favori yok.</Text>
+                </>
+                :
+                <FlatList
+                    data={favoriteItems}
+                    renderItem={({ item }) => <Text>{item.name}</Text>}
+                />
+            }
         </SafeAreaView>
     )
 }

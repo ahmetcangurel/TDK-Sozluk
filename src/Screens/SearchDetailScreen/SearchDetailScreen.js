@@ -19,7 +19,7 @@ const SearchDetailScreen = ({ navigation, route }) => {
 
     const RenderItem = ({ item }) => {
         const num = item.anlam_sira
-        const prop = item.ozelliklerListe[0]?.tam_adi.toUpperCase()
+        const prop = item.ozelliklerListe ? item.ozelliklerListe[0]?.tam_adi.toUpperCase() : 'FİİL'
         const title = item.anlam
         const sample = item.orneklerListe ? item.orneklerListe[0]?.ornek : 'Örnek bulunamadı.'
         return (

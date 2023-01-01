@@ -3,9 +3,9 @@ import { View, Text, SafeAreaView } from 'react-native'
 import styles from './DetailScreen.Style'
 import BottomSheet from 'react-native-gesture-bottom-sheet'
 import DetailHeader from '../../Components/DetailHeader/DetailHeader'
-import SearchBar from '../../Components/SearchBar'
 import { FavoriteButton, VoiceButton, SignLangButton } from '../../Components/IconButtons/IconButtons'
 import SearchItem from '../../Components/SearchItem/SearchItem'
+import Colors from '../../utils/Colors'
 
 const DetailScreen = ({ route, navigation }) => {
     const signLangRef = useRef()
@@ -13,6 +13,7 @@ const DetailScreen = ({ route, navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <DetailHeader
+                background={Colors.softBrown}
                 title={title}
                 onPress={() => navigation.goBack()}
             />

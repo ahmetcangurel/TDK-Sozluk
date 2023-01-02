@@ -10,5 +10,10 @@ export default StyleSheet.create({
     text: {
         color: Colors.darkGray,
         marginTop: 16,
+    },
+    flatList: {
+        flex: 1,
+        width: '100%',
+        paddingHorizontal: 8,
     }
 })

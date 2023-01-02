@@ -15,16 +15,16 @@ const FavoriteScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            {favoriteItems.length < 0 || null ?
+            {favoriteItems.length < 0 ?
                 <>
                     <Favorite size={48} fill={Colors.darkGray} />
                     <Text style={styles.text}>Henüz favori yok.</Text>
                 </>
                 :
                 <FlatList
-                    style={{ flex: 1, width: '100%', paddingHorizontal: 8, }}
+                    style={styles.flatList}
                     data={favoriteItems}
-                    renderItem={({ item }) => <SearchItem title={item.name} icon onPress={null} />}
+                    renderItem={({ item }) => <SearchItem title={item.name} onPress={null} />}
                 />
             }
         </SafeAreaView>

@@ -83,6 +83,23 @@ const SearchScreen = ({ navigation }) => {
         getFavData()
     }, [])
 
+    // Set history data
+    const setSearchHistoryList = async (value) => {
+        const data = await AsyncStorage.getItem('@history')
+        const resData = data !== null ? JSON.parse(data) : []
+        let control = resData.filter((item) => {
+            return item.name === value
+        })
+        console.log('control', control)
+        if (control.name == value || control.length > 0) {
+            console.log('unset', value)
+        } else {
+            console.log('set', value)
+            const newList = [...resData, { name: value }]
+            await AsyncStorage.setItem('@history', JSON.stringify(newList))
+            console.log(newList)
+        }
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -143,10 +160,12 @@ const SearchScreen = ({ navigation }) => {
                         renderItem={({ item }) =>
                             <SearchItem
                                 title={item.madde}
-                                onPress={() => navigation.navigate('SearchDetail', {
-                                    keyword: item.madde,
-                                    title: item.madde
-                                })}
+                                onPress={() => {
+                                    navigation.navigate('SearchDetail', {
+                                        keyword: item.madde,
+                                        title: item.madde
+                                    }), setSearchHistoryList(item.madde)
+                                }}
                                 icon
                             />}
                     />

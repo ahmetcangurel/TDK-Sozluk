@@ -68,19 +68,30 @@ const SearchScreen = ({ navigation }) => {
 
     const dispatch = useDispatch()
 
-    //Get Favorite Data
-    const getFavData = async () => {
+    //Get Favorite/History Data
+    const getFavoriteData = async () => {
         let data = await AsyncStorage.getItem('@favorites')
         let resData = data !== null ? JSON.parse(data) : []
-
         dispatch({
             type: 'UPDATE_FAVORITE_LIST',
             payload: resData
         })
     }
 
+    //Get History Data
+    const getHistoryData = async () => {
+        let data = await AsyncStorage.getItem('@history')
+        let resData = data !== null ? JSON.parse(data) : []
+        dispatch({
+            type: 'UPDATE_HISTORY_LIST',
+            payload: resData
+        })
+
+    }
+
     useEffect(() => {
-        getFavData()
+        getFavoriteData()
+        getHistoryData()
     }, [])
 
     // Set history data
@@ -90,14 +101,15 @@ const SearchScreen = ({ navigation }) => {
         let control = resData.filter((item) => {
             return item.name === value
         })
-        console.log('control', control)
         if (control.name == value || control.length > 0) {
-            console.log('unset', value)
+            console.log('not set', value)
         } else {
-            console.log('set', value)
             const newList = [...resData, { name: value }]
             await AsyncStorage.setItem('@history', JSON.stringify(newList))
-            console.log(newList)
+            dispatch({
+                type: 'UPDATE_HISTORY_LIST',
+                payload: newList
+            })
         }
     }
 

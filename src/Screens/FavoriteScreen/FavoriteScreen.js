@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, SafeAreaView } from 'react-native'
+import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -13,19 +13,32 @@ const FavoriteScreen = () => {
     const dispatch = useDispatch()
     const favoriteItems = useSelector(s => s.favoriteList)
 
+    const clearAllFavorites = () => {
+        AsyncStorage.removeItem('@favorites')
+        dispatch({
+            type: 'UPDATE_FAVORITE_LIST',
+            payload: []
+        })
+    }
+
     return (
         <SafeAreaView style={styles.container}>
-            {favoriteItems.length < 0 ?
+            {!favoriteItems.length ?
                 <>
                     <Favorite size={48} fill={Colors.darkGray} />
                     <Text style={styles.text}>Henüz favori yok.</Text>
                 </>
                 :
-                <FlatList
-                    style={styles.flatList}
-                    data={favoriteItems}
-                    renderItem={({ item }) => <SearchItem title={item.name} onPress={null} />}
-                />
+                <>
+                    <TouchableOpacity style={styles.clearData} onPress={() => clearAllFavorites()}>
+                        <Text style={styles.clearDataText}>Tümünü Temizle!</Text>
+                    </TouchableOpacity>
+                    <FlatList
+                        style={styles.flatList}
+                        data={favoriteItems}
+                        renderItem={({ item }) => <SearchItem title={item.name} onPress={null} />}
+                    />
+                </>
             }
         </SafeAreaView>
     )

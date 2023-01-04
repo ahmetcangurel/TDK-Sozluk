@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { View, Text, ImageBackground, Image } from 'react-native'
+import { View, Text, ImageBackground, Image, Dimensions } from 'react-native'
 import styles from './AboutScreen.Style'
 
 import Button from '../../Components/Button'
@@ -8,6 +8,7 @@ import Colors from '../../utils/Colors'
 import ContactScreen from '../ContactScreen'
 import InfoScreen from '../InfoScreen'
 import BottomSheet from 'react-native-gesture-bottom-sheet'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const AboutScreen = () => {
   const ContactRef = useRef()
@@ -26,7 +27,7 @@ const AboutScreen = () => {
         textColor={Colors.dark}
         onPress={() => InfoRef.current.show()}
       />
-      <BottomSheet sheetBackgroundColor={Colors.white} ref={InfoRef} height={400} >
+      <BottomSheet hasDraggableIcon sheetBackgroundColor={Colors.white} ref={InfoRef} height={400} >
         <InfoScreen />
       </BottomSheet>
       <Button
@@ -35,9 +36,9 @@ const AboutScreen = () => {
         textColor={Colors.dark}
         onPress={() => ContactRef.current.show()}
       />
-      <BottomSheet sheetBackgroundColor={Colors.white} ref={ContactRef} height={400} >
-        <ContactScreen />
-      </BottomSheet>
+        <BottomSheet hasDraggableIcon sheetBackgroundColor={Colors.white} ref={ContactRef} height={600} >
+          <ContactScreen />
+        </BottomSheet>
     </View>
   )
 }

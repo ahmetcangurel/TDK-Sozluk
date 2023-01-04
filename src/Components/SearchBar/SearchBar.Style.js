@@ -48,4 +48,13 @@ export default styles = StyleSheet.create({
     cancelButtonText: {
         color: Colors.dark,
     },
+    lettersContainer:{
+        width: '100%',
+        height: 48,
+        //backgroundColor: '#E2E2E2',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 19,
+    }
 })

@@ -7,13 +7,13 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: 'white',
-        height: 54,
+        height: 75,
         borderRadius: 6,
         paddingHorizontal: 16,
-        marginVertical: 6,
+        paddingVertical: 12,
     },
     title: {
         color: Colors.dark,
-        fontWeight: 'bold',
+        fontSize: 16,
     },
 })

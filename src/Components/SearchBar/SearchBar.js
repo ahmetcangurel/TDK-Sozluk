@@ -79,6 +79,7 @@ const SearchBar = ({ onChangeFocus, setSearchData }) => {
                 <Animated.View style={[styles.lettersContainer, { opacity: lettersVisible }]}>
                     {letters.map(letter =>
                         <SpecialLetters
+                            key={letter}
                             letter={letter}
                             onPress={() => setValue(...value, letter)}
                         />

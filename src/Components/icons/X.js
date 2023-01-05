@@ -3,8 +3,8 @@ import Svg, { Path } from 'react-native-svg';
 
 const SvgX = props => (
   <Svg
-    width={24}
-    height={24}
+    width={props.size}
+    height={props.size}
     viewBox="0 0 32 32"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"

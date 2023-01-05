@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import Colors from '../../utils/Colors'
 
 export default StyleSheet.create({
     container: {
@@ -31,7 +32,9 @@ export default StyleSheet.create({
         paddingTop: 8,
         paddingHorizontal: 8,
     },
-    searchItems: {
-        marginHorizontal: 8,
+    separator: {
+        height: 1,
+        width: '100%',
+        backgroundColor: Colors.separator,
     },
 })

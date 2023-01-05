@@ -11,7 +11,7 @@ import RecommetedCard from '../../Components/RecommetedCard/RecommetedCard'
 import SvgMore from '../../Components/icons/More'
 import Colors from '../../utils/Colors'
 import AboutScreen from '../AboutScreen'
-import SearchItem from '../../Components/SearchItem/SearchItem'
+import SearchItem from '../../Components/SearchItem'
 
 const SearchScreen = ({ navigation }) => {
     const bannerHeight = useRef(new Animated.Value(230)).current;
@@ -166,9 +166,10 @@ const SearchScreen = ({ navigation }) => {
                     />
                 </ScrollView>
             ) : (
-                <View style={styles.searchItems}>
+                <View>
                     <FlatList
                         data={searchData}
+                        ItemSeparatorComponent={() => <View style={styles.separator} />}
                         renderItem={({ item }) =>
                             <SearchItem
                                 title={item.madde}

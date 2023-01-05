@@ -7,6 +7,7 @@ const Colors = {
     white: "#FFF",
     brown: "#4F3822",
     softBrown: "#F3EBE2",
+    separator: "#EEF0F2",
 }
 
 export default Colors

@@ -4,7 +4,7 @@ import styles from './DetailScreen.Style'
 import BottomSheet from 'react-native-gesture-bottom-sheet'
 import DetailHeader from '../../Components/DetailHeader/DetailHeader'
 import { FavoriteButton, VoiceButton, SignLangButton } from '../../Components/IconButtons/IconButtons'
-import SearchItem from '../../Components/SearchItem/SearchItem'
+import ListItem from '../../Components/ListItem/ListItem'
 import Colors from '../../utils/Colors'
 
 const DetailScreen = ({ route, navigation }) => {
@@ -27,7 +27,7 @@ const DetailScreen = ({ route, navigation }) => {
                     <VoiceButton onPress={() => console.log('Voice Button Pressed!')} />
                     <SignLangButton onPress={() => console.log('SignLang Button Pressed!')} />
                 </View>
-                <SearchItem
+                <ListItem
                     title={data && data.anlam}
                 />
             </View>

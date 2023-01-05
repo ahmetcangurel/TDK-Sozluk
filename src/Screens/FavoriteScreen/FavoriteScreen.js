@@ -7,7 +7,7 @@ import styles from './FavoriteScreen.Style'
 import Favorite from '../../Components/icons/Favorite'
 import Colors from '../../utils/Colors'
 import { FlatList } from 'react-native-gesture-handler';
-import SearchItem from '../../Components/SearchItem/SearchItem';
+import ListItem from '../../Components/ListItem';
 
 const FavoriteScreen = () => {
     const dispatch = useDispatch()
@@ -36,7 +36,7 @@ const FavoriteScreen = () => {
                     <FlatList
                         style={styles.flatList}
                         data={favoriteItems}
-                        renderItem={({ item }) => <SearchItem title={item.name} onPress={null} />}
+                        renderItem={({ item }) => <ListItem title={item.name} onPress={null} />}
                     />
                 </>
             }

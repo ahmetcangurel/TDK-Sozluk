@@ -4,7 +4,7 @@ import styles from './HistoryScreen.Style'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useDispatch, useSelector } from 'react-redux'
 
-import SearchItem from '../../Components/SearchItem/SearchItem'
+import ListItem from '../../Components/ListItem'
 import History from '../../Components/icons/History'
 import Colors from '../../utils/Colors'
 import SvgTrash from '../../Components/icons/Trash'
@@ -36,7 +36,7 @@ const DetailScreen = () => {
                     <FlatList
                         style={styles.flatList}
                         data={history}
-                        renderItem={({ item }) => <SearchItem title={item.name} onPress={null} />}
+                        renderItem={({ item }) => <ListItem title={item.name} onPress={null} />}
                     />
                 </>
             }

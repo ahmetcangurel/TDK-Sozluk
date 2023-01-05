@@ -67,7 +67,7 @@ const SearchBar = ({ onChangeFocus, setSearchData }) => {
                             onSearchFilter(text)
                         }}
                     />
-                    {value && <SvgX onPress={onClear} style={styles.xIcon} />}
+                    {value && <SvgX size={20} onPress={onClear} style={styles.xIcon} />}
                 </View>
                 {isFocus &&
                     <TouchableOpacity style={styles.cancelButton} onPress={onCancel}>

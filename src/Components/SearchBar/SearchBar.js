@@ -81,7 +81,7 @@ const SearchBar = ({ onChangeFocus, setSearchData }) => {
                         <SpecialLetters
                             key={letter}
                             letter={letter}
-                            onPress={() => setValue(...value, letter)}
+                            onPress={() => setValue(prev => prev + letter)}
                         />
                     )}
                 </Animated.View>}

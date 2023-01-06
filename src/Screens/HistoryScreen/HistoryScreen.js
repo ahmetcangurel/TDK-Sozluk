@@ -8,6 +8,7 @@ import ListItem from '../../Components/ListItem'
 import History from '../../Components/icons/History'
 import Colors from '../../utils/Colors'
 import SvgTrash from '../../Components/icons/Trash'
+import EmptyContent from '../../Components/EmptyContent/EmptyContent'
 
 const DetailScreen = () => {
     const history = useSelector(s => s.historyList)
@@ -24,10 +25,7 @@ const DetailScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             {!history.length ?
-                <>
-                    <History fill={Colors.darkGray} size={48} />
-                    <Text style={styles.text}>Henüz geçmiş yok.</Text>
-                </>
+                <EmptyContent type='history' />
                 :
                 <>
                     <TouchableOpacity style={styles.clearData} onPress={() => clearAllHistory()}>

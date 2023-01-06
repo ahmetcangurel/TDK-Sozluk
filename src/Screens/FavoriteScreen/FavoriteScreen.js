@@ -8,6 +8,7 @@ import Favorite from '../../Components/icons/Favorite'
 import Colors from '../../utils/Colors'
 import { FlatList } from 'react-native-gesture-handler';
 import ListItem from '../../Components/ListItem';
+import EmptyContent from '../../Components/EmptyContent/EmptyContent';
 
 const FavoriteScreen = () => {
     const dispatch = useDispatch()
@@ -24,10 +25,7 @@ const FavoriteScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             {!favoriteItems.length ?
-                <>
-                    <Favorite size={48} fill={Colors.darkGray} />
-                    <Text style={styles.text}>Henüz favori yok.</Text>
-                </>
+                <EmptyContent type='favorite' />
                 :
                 <>
                     <TouchableOpacity style={styles.clearData} onPress={() => clearAllFavorites()}>

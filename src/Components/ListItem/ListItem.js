@@ -5,7 +5,7 @@ import SvgCheck from '../icons/Check'
 import SvgRight from '../icons/Right'
 import styles from './ListItem.Style'
 
-const ListItem = ({ onPress, onLongPress, title, icon = false, selected }) => {
+const ListItem = ({ onPress, onLongPress, title, selected }) => {
 
     return (
         <TouchableOpacity
@@ -14,8 +14,7 @@ const ListItem = ({ onPress, onLongPress, title, icon = false, selected }) => {
             style={styles.container}
         >
             <Text style={styles.title}>{title}</Text>
-            {icon && <SvgRight size={24} fill={Colors.red} />}
-            {selected && <SvgCheck size={20} fill={Colors.red} />}
+            {selected ? <SvgCheck size={20} fill={Colors.red} /> : <SvgRight size={24} fill={Colors.red} />}
         </TouchableOpacity>
     )
 }

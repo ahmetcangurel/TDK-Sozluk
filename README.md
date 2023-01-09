@@ -10,8 +10,9 @@
 
 ## Tasarımcılar / Designers
 
-[Feyza Nur Demirci](https://twitter.com/corbieofthesoul) - UI/UX Designer
+[Feyza Nur Demirci](https://twitter.com/corbieofthesoul) - UI/UX Designer </br>
 [Şahin Abut](https://twitter.com/sahinabut) - UI/UX Designer
+
 ## Klasör Yapısı / Folder structure 
 
 - `src`: Bu klasör tüm uygulamanın kodlarını barındırır.

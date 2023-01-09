@@ -39,7 +39,10 @@ const ContactScreen = () => {
                     <SvgFax size={24} fill={Colors.red} />
                     <Text style={styles.contactNumber}>+90 231 457 52 00</Text>
                 </View>
-                <Button onPress={() => handleSendMail()} text='E-Posta Yaz' textColor={Colors.dark} bgColor={Colors.gray} />
+                <Button
+                    title='E-Posta Yaz'
+                    onPress={() => handleSendMail()}
+                />
 
                 {/* Store Info */}
                 <Text style={styles.contactTitle}>Kızılay Kitap Satış Mağazası</Text>
@@ -50,7 +53,10 @@ const ContactScreen = () => {
                     <SvgPhone size={24} fill={Colors.red} />
                     <Text style={styles.contactNumber}>+90 312 457 52 00</Text>
                 </View>
-                <Button onPress={() => handleOpenUrl()} text='E-Mağazaya Git' textColor={Colors.dark} bgColor={Colors.gray} />
+                <Button
+                    title='E-Mağazaya Git'
+                    onPress={() => handleOpenUrl()}
+                />
             </View>
         </View>
     )

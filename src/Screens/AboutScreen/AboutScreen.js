@@ -20,21 +20,23 @@ const AboutScreen = () => {
         <Text style={styles.appName}>Türk Dil Kurumu Başkanlığı</Text>
         <Text style={styles.version}>v.1.0</Text>
       </ImageBackground>
-      <Button
-        text='Hakkında'
-        bgColor={Colors.gray}
-        textColor={Colors.dark}
-        onPress={() => InfoRef.current.show()}
-      />
+
+      {/* Buttons */}
+      <View style={{ marginTop: 8, width: '100%', paddingHorizontal: 8, }}>
+        <Button
+          title='Hakkında'
+          onPress={() => InfoRef.current.show()}
+        />
+        <Button
+          title='İletişim'
+          onPress={() => ContactRef.current.show()}
+        />
+      </View>
+
+      {/* Bottomsheets */}
       <BottomSheet hasDraggableIcon sheetBackgroundColor={Colors.white} ref={InfoRef} height={400} >
         <InfoScreen />
       </BottomSheet>
-      <Button
-        text='İletişim'
-        bgColor={Colors.gray}
-        textColor={Colors.dark}
-        onPress={() => ContactRef.current.show()}
-      />
       <BottomSheet hasDraggableIcon sheetBackgroundColor={Colors.white} ref={ContactRef} height={600} >
         <ScrollView showsVerticalScrollIndicator={false}>
           <ContactScreen />

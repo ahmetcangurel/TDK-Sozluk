@@ -9,7 +9,7 @@ import ListItem from '../../Components/ListItem'
 import EmptyContent from '../../Components/EmptyContent/EmptyContent'
 import Button from '../../Components/Button/Button'
 
-const FavoriteScreen = () => {
+const FavoriteScreen = ({ navigation }) => {
     const [selectedItems, setSelectedItems] = useState([]);
     const favoriteItems = useSelector(s => s.favoriteList)
 
@@ -18,8 +18,10 @@ const FavoriteScreen = () => {
             return selectItems(name)
         }
 
-        // here you can add you code what do you want if user just do single tap
-        console.log('pressed')
+        navigation.navigate('SearchDetail', {
+            title: name.name,
+            keyword: name.name
+        })
     };
 
     const getSelected = name => selectedItems.includes(name.name)

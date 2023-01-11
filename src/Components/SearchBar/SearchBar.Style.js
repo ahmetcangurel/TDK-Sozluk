@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
+import Colors from '../../utils/Colors'
 
 export default styles = StyleSheet.create({
     container: {
@@ -19,16 +19,6 @@ export default styles = StyleSheet.create({
         height: 52,
         borderRadius: 8,
         paddingLeft: 52,
-
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.23,
-        shadowRadius: 2.62,
-
-        elevation: 4,
     },
     searchIcon: {
         color: Colors.dark,
@@ -48,7 +38,7 @@ export default styles = StyleSheet.create({
     cancelButtonText: {
         color: Colors.dark,
     },
-    lettersContainer:{
+    lettersContainer: {
         width: '100%',
         height: 48,
         //backgroundColor: '#E2E2E2',
@@ -56,5 +46,29 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 19,
+    },
+    selected: {
+        borderWidth: .5,
+        borderColor: Colors.red,
+        shadowColor: Colors.red,
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 3,
+    },
+    deSelected: {
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+
+        elevation: 4,
     }
 })

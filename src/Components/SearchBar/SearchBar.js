@@ -59,7 +59,7 @@ const SearchBar = ({ onChangeFocus, setSearchData }) => {
                     <SvgSearch style={styles.searchIcon} />
                     <TextInput
                         placeholder="Türkçe Sözlük'te Ara!"
-                        style={styles.textInput}
+                        style={[styles.textInput, isFocus ? styles.selected : styles.deSelected]}
                         value={value}
                         onFocus={() => setIsFocus(true)}
                         onChangeText={text => {

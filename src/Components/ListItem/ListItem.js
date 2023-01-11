@@ -11,7 +11,7 @@ const ListItem = ({ onPress, onLongPress, title, selected }) => {
         <TouchableOpacity
             onPress={onPress}
             onLongPress={onLongPress}
-            style={styles.container}
+            style={[styles.container, selected && styles.selected]}
         >
             <Text style={styles.title}>{title}</Text>
             {selected ? <SvgCheck size={20} fill={Colors.red} /> : <SvgRight size={24} fill={Colors.red} />}

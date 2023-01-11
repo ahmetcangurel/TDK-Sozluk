@@ -11,9 +11,23 @@ export default styles = StyleSheet.create({
         borderRadius: 6,
         paddingHorizontal: 16,
         marginVertical: 6,
+        marginHorizontal:8,
     },
     title: {
         color: Colors.dark,
         fontWeight: 'bold',
+    },
+    selected: {
+        borderWidth: .5,
+        borderColor: Colors.red,
+        shadowColor: Colors.red,
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 3,
     },
 })

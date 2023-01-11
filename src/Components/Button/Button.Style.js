@@ -46,7 +46,7 @@ export default {
         },
         title: {
             ...base.title,
-            color: Colors.dark
+            color: Colors.darkGray
         }
     })
 }

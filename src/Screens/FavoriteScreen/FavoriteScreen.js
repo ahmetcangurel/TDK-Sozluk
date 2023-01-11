@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import styles from './FavoriteScreen.Style'
-import Colors from '../../utils/Colors';
 import ListItem from '../../Components/ListItem'
 import EmptyContent from '../../Components/EmptyContent/EmptyContent'
 import Button from '../../Components/Button/Button'
@@ -22,7 +21,7 @@ const FavoriteScreen = ({ navigation }) => {
             title: name.name,
             keyword: name.name
         })
-    };
+    }
 
     const getSelected = name => selectedItems.includes(name.name)
 
@@ -35,7 +34,16 @@ const FavoriteScreen = ({ navigation }) => {
             )
             return setSelectedItems([...newListItems])
         }
+        console.log(selectedItems)
         setSelectedItems([...selectedItems, item.name])
+    }
+
+    const getSelectAll = () => {
+        return favoriteItems.map(item => {
+            if (!selectedItems.includes(item.name)) {
+                setSelectedItems([...selectedItems, item.name])
+            }
+        })
     }
 
     const SelectedButtons = () => {
@@ -44,13 +52,15 @@ const FavoriteScreen = ({ navigation }) => {
                 <View style={styles.topButtonContainer}>
                     <View style={styles.button}>
                         <Button
-                            title={`Sil (${selectItems.length})`}
+                            title={`Sil (${selectedItems.length})`}
                             type='secondary'
+                            onPress={() => console.log('Sil çalıştı')}
                         />
                     </View>
                     <View style={styles.button}>
                         <Button
                             title='Tümünü Seç'
+                            onPress={() => getSelectAll()}
                         />
                     </View>
                 </View>
